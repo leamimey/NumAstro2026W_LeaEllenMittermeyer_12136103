@@ -1,0 +1,27 @@
+import numpy as np
+
+def create_star(name, mass, radius, temperature):
+    return{'name': name, 'mass': mass, 'radius': radius, 'temperature': temperature}
+
+def print_star(star):
+    print(f'The name of the star is {star['name']}, and its mass is about {star['mass']} sunmasses, /nit has a radius of {star['radius']}, and a temperature of {star['temperature']} Kelvin')
+
+def is_FGKM(star, t_limit):
+    return star['temperature'] < t_limit
+
+t_limit = 7300
+star1 = create_star('Sirius', 2.06, 1.71, 9940)
+star2 = create_star('Proxima', 300, 20, 5000)
+star3 = create_star('The Sun', 1, 1, 5700)
+
+print_star(star1)
+print_star(star2)
+print_star(star3)
+
+stars = list[star1, star2, star3]
+
+temps = np.array([star1['temperature'], star2['temperature'], star3['temperature']])
+
+print(temps)
+
+print(is_FGKM(star1, t_limit), is_FGKM(star2, t_limit), is_FGKM(star3, t_limit))
